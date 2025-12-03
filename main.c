@@ -6,7 +6,7 @@
 /*   By: mlorenz <mlorenz@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 14:16:47 by mlorenz           #+#    #+#             */
-/*   Updated: 2025/12/02 14:24:36 by mlorenz          ###   ########.fr       */
+/*   Updated: 2025/12/02 14:31:28 by mlorenz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,7 @@ int	main(int argc, char **argv)
 {
 	if (argc < 2)
 		return (1);
+	if (!arguments_valid(argc, argv))
+		return (write(2, "Error\n", 6), 2);
 	return (0);
 }
