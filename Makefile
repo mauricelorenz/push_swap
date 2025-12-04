@@ -1,29 +1,39 @@
-NAME =		push_swap
+NAME =			push_swap
 
-SRC =		main.c \
-			push_swap.c \
-			ft_printf.c
+SRC_DIR =		src/
+SRC =			main.c \
+				push_swap.c
 
-OBJ =		$(SRC:.c=.o)
+OBJ_DIR =		obj/
+OBJ =			$(addprefix $(OBJ_DIR), $(SRC:.c=.o))
 
-CC =		cc
+LIBFT_DIR =		libft/
+LIBFT = 		$(LIBFT_DIR)libft.a
 
-CFLAGS =	-Wall -Wextra -Werror
+CC =			cc
 
-all:		$(NAME)
+CFLAGS =		-Wall -Wextra -Werror
 
-$(NAME):	$(OBJ)
-			$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+all:			$(NAME)
 
-%.o:		%.c
-			$(CC) $(CFLAGS) -c $< -o $@
+$(NAME):		$(OBJ) $(LIBFT)
+				$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
+
+$(LIBFT):
+				$(MAKE) -C $(LIBFT_DIR)
+
+$(OBJ_DIR)%.o:	$(SRC_DIR)%.c
+				mkdir -p $(OBJ_DIR)
+				$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-			rm -f $(OBJ)
+				rm -rf $(OBJ_DIR)
+				$(MAKE) -C $(LIBFT_DIR) clean
 
-fclean:		clean
-			rm -f $(NAME)
+fclean:			clean
+				rm -f $(NAME)
+				$(MAKE) -C $(LIBFT_DIR) fclean
 
-re:			fclean all
+re:				fclean all
 
-.PHONY:		all clean fclean re
+.PHONY:			all clean fclean re
