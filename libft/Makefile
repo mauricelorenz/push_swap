@@ -3,7 +3,8 @@ NAME =		libft.a
 SRC =		ft_atoi.c \
 			ft_atol.c \
 			ft_printf.c \
-			ft_isdigit.c
+			ft_isdigit.c \
+			ft_putendl_fd.c
 
 OBJ =		$(SRC:.c=.o)
 
