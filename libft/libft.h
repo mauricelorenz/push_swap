@@ -6,7 +6,7 @@
 /*   By: mlorenz <mlorenz@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 12:10:44 by mlorenz           #+#    #+#             */
-/*   Updated: 2025/12/04 16:04:38 by mlorenz          ###   ########.fr       */
+/*   Updated: 2025/12/10 12:36:23 by mlorenz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+int		ft_atoi(const char *nptr);
 long	ft_atol(const char *nptr);
 int		ft_printf(const char *str, ...);
 int		ft_isdigit(int c);

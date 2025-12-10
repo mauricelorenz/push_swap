@@ -6,33 +6,53 @@
 /*   By: mlorenz <mlorenz@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 13:46:29 by mlorenz           #+#    #+#             */
-/*   Updated: 2025/12/04 15:50:23 by mlorenz          ###   ########.fr       */
+/*   Updated: 2025/12/10 12:41:02 by mlorenz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+static int	is_unique(char *arg_ptr, char **argv);
+
 int	arguments_valid(int argc, char **argv)
 {
 	char	*arg_ptr;
-	long	arg_nbr;
+	char	**argv_ptr;
+	long	arg_long;
 
 	argv++;
+	argv_ptr = argv;
 	while (argc-- > 1)
 	{
-		arg_ptr = *argv;
+		arg_ptr = *argv_ptr;
 		while (*arg_ptr)
 		{
 			if (!ft_isdigit(*arg_ptr) && *arg_ptr != '-')
 				return (0);
 			arg_ptr++;
 		}
-		arg_nbr = ft_atol(*argv);
-		if (arg_nbr < INT_MIN || arg_nbr > INT_MAX)
+		arg_long = ft_atol(*argv_ptr);
+		if (arg_long < INT_MIN || arg_long > INT_MAX)
 			return (0);
-		
-		argv++;
+		if (!is_unique(*argv_ptr, argv))
+			return (0);
+		argv_ptr++;
 	}
 	return (1);
 }
 
+static int	is_unique(char *arg_ptr, char **argv)
+{
+	char	*argv_curr;
+	int		arg_int;
+
+	argv_curr = *argv;
+	arg_int = atoi(arg_ptr);
+	while (argv_curr < arg_ptr)
+	{
+		if (arg_int == atoi(argv_curr))
+			return (0);
+		argv_curr++;
+	}
+	return (1);
+}
