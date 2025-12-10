@@ -6,7 +6,7 @@
 /*   By: mlorenz <mlorenz@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 13:46:29 by mlorenz           #+#    #+#             */
-/*   Updated: 2025/12/10 12:41:02 by mlorenz          ###   ########.fr       */
+/*   Updated: 2025/12/10 13:00:53 by mlorenz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ static int	is_unique(char *arg_ptr, char **argv)
 	int		arg_int;
 
 	argv_curr = *argv;
-	arg_int = atoi(arg_ptr);
+	arg_int = ft_atoi(arg_ptr);
 	while (argv_curr < arg_ptr)
 	{
-		if (arg_int == atoi(argv_curr))
+		if (arg_int == ft_atoi(argv_curr))
 			return (0);
 		argv_curr++;
 	}
