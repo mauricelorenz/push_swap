@@ -6,13 +6,25 @@
 /*   By: mlorenz <mlorenz@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 13:46:29 by mlorenz           #+#    #+#             */
-/*   Updated: 2025/12/10 13:00:53 by mlorenz          ###   ########.fr       */
+/*   Updated: 2025/12/13 16:09:16 by mlorenz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 static int	is_unique(char *arg_ptr, char **argv);
+
+int	already_sorted(int argc, char **argv)
+{
+	argv++;
+	while (argc-- > 2)
+	{
+		if (ft_atoi(*argv) > ft_atoi(*(argv + 1)))
+			return (0);
+		argv++;
+	}
+	return (1);
+}
 
 int	arguments_valid(int argc, char **argv)
 {
