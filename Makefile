@@ -2,6 +2,7 @@ NAME =			push_swap
 
 SRC_DIR =		src/
 SRC =			main.c \
+				populate_stack.c \
 				push_swap.c
 
 OBJ_DIR =		obj/
