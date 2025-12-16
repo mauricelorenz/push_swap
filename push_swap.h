@@ -6,7 +6,7 @@
 /*   By: mlorenz <mlorenz@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 13:46:27 by mlorenz           #+#    #+#             */
-/*   Updated: 2025/12/14 23:51:08 by mlorenz          ###   ########.fr       */
+/*   Updated: 2025/12/16 18:06:56 by mlorenz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,5 @@ typedef struct s_stack
 }					t_stack;
 t_stack	*populate_stack(int argc, char **argv);
 void	stack_clear(t_stack **stack);
+void	sab(t_stack **stack, char ab);
 #endif

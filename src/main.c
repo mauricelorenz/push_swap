@@ -6,11 +6,13 @@
 /*   By: mlorenz <mlorenz@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 14:16:47 by mlorenz           #+#    #+#             */
-/*   Updated: 2025/12/15 00:08:47 by mlorenz          ###   ########.fr       */
+/*   Updated: 2025/12/16 18:20:12 by mlorenz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+static void	test_output(t_stack *stack); // ##################################### REMOVE
 
 int	main(int argc, char **argv)
 {
@@ -27,11 +29,18 @@ int	main(int argc, char **argv)
 	if (!stack_a)
 		return (3);
 	stack_a_orig = stack_a;
-	while (stack_a)
-	{
-		ft_printf("%i\n", stack_a->member);
-		stack_a = stack_a->next;
-	}
+	test_output(stack_a);
+	sab(&stack_a, 'a');
+	test_output(stack_a);
 	stack_clear(&stack_a_orig);
 	return (0);
+}
+
+static void	test_output(t_stack *stack) // ##################################### REMOVE
+{
+	while (stack)
+	{
+		ft_printf("%i\n", stack->member);
+		stack = stack->next;
+	}
 }
