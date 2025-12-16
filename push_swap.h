@@ -6,7 +6,7 @@
 /*   By: mlorenz <mlorenz@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 13:46:27 by mlorenz           #+#    #+#             */
-/*   Updated: 2025/12/16 22:06:35 by mlorenz          ###   ########.fr       */
+/*   Updated: 2025/12/16 22:59:24 by mlorenz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,13 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 t_stack	*populate_stack(int argc, char **argv);
+t_stack	*stack_last(t_stack *stack);
 void	stack_clear(t_stack **stack);
 void	sab(t_stack **stack, char ab);
 void	ss(t_stack **stack_a, t_stack **stack_b);
 void	pab(t_stack **stack_dst, t_stack **stack_src, char ab);
+void	rab(t_stack **stack, char ab);
+void	rr(t_stack **stack_a, t_stack **stack_b);
+void	rrab(t_stack **stack, char ab);
+void	rrr(t_stack **stack_a, t_stack **stack_b);
 #endif

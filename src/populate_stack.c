@@ -6,7 +6,7 @@
 /*   By: mlorenz <mlorenz@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 23:23:30 by mlorenz           #+#    #+#             */
-/*   Updated: 2025/12/15 00:09:00 by mlorenz          ###   ########.fr       */
+/*   Updated: 2025/12/16 22:45:27 by mlorenz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static t_stack	*stack_new(int member);
 static void		stack_add_back(t_stack **stack, t_stack *new);
-static t_stack	*stack_last(t_stack *stack);
 
 t_stack	*populate_stack(int argc, char **argv)
 {
@@ -56,7 +55,7 @@ static void	stack_add_back(t_stack **stack, t_stack *new)
 		stack_last(*stack)->next = new;
 }
 
-static t_stack	*stack_last(t_stack *stack)
+t_stack	*stack_last(t_stack *stack)
 {
 	while (stack && stack->next)
 		stack = stack->next;
