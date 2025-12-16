@@ -6,7 +6,7 @@
 /*   By: mlorenz <mlorenz@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 17:33:49 by mlorenz           #+#    #+#             */
-/*   Updated: 2025/12/16 18:21:37 by mlorenz          ###   ########.fr       */
+/*   Updated: 2025/12/16 22:06:00 by mlorenz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,23 @@ void	ss(t_stack **stack_a, t_stack **stack_b)
 	sab(stack_a, 's');
 	sab(stack_b, 's');
 	ft_putendl_fd("ss", 1);
+	return ;
+}
+
+void	pab(t_stack **stack_dst, t_stack **stack_src, char ab)
+{
+	t_stack	*src_head;
+
+	if (*stack_src)
+	{
+		src_head = *stack_src;
+		*stack_src = (*stack_src)->next;
+		src_head->next = *stack_dst;
+		*stack_dst = src_head;
+	}
+	if (ab == 'a')
+		ft_putendl_fd("pa", 1);
+	else if (ab == 'b')
+		ft_putendl_fd("pb", 1);
 	return ;
 }
