@@ -6,11 +6,11 @@
 /*   By: mlorenz <mlorenz@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 21:36:10 by mlorenz           #+#    #+#             */
-/*   Updated: 2025/10/19 22:11:21 by mlorenz          ###   ########.fr       */
+/*   Updated: 2025/12/16 17:15:05 by mlorenz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
 void	ft_putendl_fd(char *s, int fd)
 {
