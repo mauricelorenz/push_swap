@@ -5,7 +5,8 @@ SRC =			main.c \
 				populate_stack.c \
 				validate_input.c \
 				sort_push_swap.c \
-				sort_rotate.c
+				sort_rotate.c \
+				sort.c
 
 OBJ_DIR =		obj/
 OBJ =			$(addprefix $(OBJ_DIR), $(SRC:.c=.o))

@@ -6,13 +6,13 @@
 /*   By: mlorenz <mlorenz@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 23:23:30 by mlorenz           #+#    #+#             */
-/*   Updated: 2025/12/16 22:45:27 by mlorenz          ###   ########.fr       */
+/*   Updated: 2025/12/27 16:30:16 by mlorenz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static t_stack	*stack_new(int member);
+static t_stack	*stack_new(int value);
 static void		stack_add_back(t_stack **stack, t_stack *new);
 
 t_stack	*populate_stack(int argc, char **argv)
@@ -33,14 +33,15 @@ t_stack	*populate_stack(int argc, char **argv)
 	return (my_stack);
 }
 
-static t_stack	*stack_new(int member)
+static t_stack	*stack_new(int value)
 {
 	t_stack	*my_stack;
 
 	my_stack = malloc(sizeof(t_stack));
 	if (!my_stack)
 		return (0);
-	my_stack->member = member;
+	my_stack->value = value;
+	my_stack->rank = -1;
 	my_stack->next = NULL;
 	return (my_stack);
 }
