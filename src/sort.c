@@ -6,7 +6,7 @@
 /*   By: mlorenz <mlorenz@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 21:36:54 by mlorenz           #+#    #+#             */
-/*   Updated: 2025/12/28 18:08:01 by mlorenz          ###   ########.fr       */
+/*   Updated: 2025/12/28 20:22:02 by mlorenz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	sort_stacks(t_stack **stack_a, t_stack **stack_b)
 	while (i < max_rank_bits)
 	{
 		j = 0;
-		while (j < max_rank)
+		while (j <= max_rank)
 		{
 			if (((*stack_a)->rank >> i) & 1)
 				rab(stack_a, 'a');
