@@ -6,7 +6,7 @@
 /*   By: mlorenz <mlorenz@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 14:16:47 by mlorenz           #+#    #+#             */
-/*   Updated: 2025/12/27 16:30:16 by mlorenz          ###   ########.fr       */
+/*   Updated: 2025/12/28 19:10:10 by mlorenz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,8 @@ int	main(int argc, char **argv)
 	stack_a = populate_stack(argc, argv);
 	if (!stack_a)
 		return (3);
-	set_rank(stack_a);
 	stack_b = NULL;
-	// sort_stacks(&stack_a, &stack_b);
+	sort_stacks(&stack_a, &stack_b);
 	test_output(stack_a);
 	stack_clear(&stack_a);
 	stack_clear(&stack_b);
