@@ -6,7 +6,7 @@
 /*   By: mlorenz <mlorenz@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 21:36:54 by mlorenz           #+#    #+#             */
-/*   Updated: 2025/12/28 20:22:02 by mlorenz          ###   ########.fr       */
+/*   Updated: 2025/12/29 14:10:14 by mlorenz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,42 +63,43 @@ int	get_min(t_stack *stack)
 	return (min);
 }
 
-int	get_max_rank_bits(int max_rank)
+int	get_rank_pos(t_stack *stack, int rank)
 {
 	int	i;
 
 	i = 0;
-	while (max_rank)
+	while (stack)
 	{
-		max_rank >>= 1;
+		if ((stack->rank) == rank)
+			return (i);
+		stack = stack->next;
 		i++;
 	}
-	return (i);
+	return (-1);
 }
 
 void	sort_stacks(t_stack **stack_a, t_stack **stack_b)
 {
-	int	i;
-	int	j;
 	int	max_rank;
-	int	max_rank_bits;
+	int	rank_pos;
 
 	max_rank = set_rank(*stack_a);
-	max_rank_bits = get_max_rank_bits(max_rank);
-	i = 0;
-	while (i < max_rank_bits)
+	while (*stack_a)
 	{
-		j = 0;
-		while (j <= max_rank)
-		{
-			if (((*stack_a)->rank >> i) & 1)
-				rab(stack_a, 'a');
-			else
-				pab(stack_b, stack_a, 'b');
-			j++;
-		}
-		while (*stack_b)
-			pab(stack_a, stack_b, 'a');
-		i++;
+		pab(stack_b, stack_a, 'b');
+		if (((*stack_b)->rank) <= max_rank / 2)
+			rab(stack_b, 'b');
+	}
+	while (*stack_b)
+	{
+		rank_pos = get_rank_pos(*stack_b, max_rank);
+		if (rank_pos <= max_rank / 2)
+			while (((*stack_b)->rank) != max_rank)
+				rab(stack_b, 'b');
+		else
+			while (((*stack_b)->rank) != max_rank)
+				rrab(stack_b, 'b');
+		pab(stack_a, stack_b, 'a');
+		max_rank--;
 	}
 }
