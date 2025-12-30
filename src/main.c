@@ -6,13 +6,11 @@
 /*   By: mlorenz <mlorenz@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 14:16:47 by mlorenz           #+#    #+#             */
-/*   Updated: 2025/12/29 14:10:49 by mlorenz          ###   ########.fr       */
+/*   Updated: 2025/12/30 19:58:50 by mlorenz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-// static void	test_output(t_stack *stack); // ######################## REMOVE
 
 int	main(int argc, char **argv)
 {
@@ -29,23 +27,8 @@ int	main(int argc, char **argv)
 	if (!stack_a)
 		return (3);
 	stack_b = NULL;
-	// test_output(stack_a);
-	// ft_putendl_fd("---", 1);
-	// test_output(stack_b);
 	sort_stacks(&stack_a, &stack_b);
-	// test_output(stack_a);
-	// ft_putendl_fd("---", 1);
-	// test_output(stack_b);
 	stack_clear(&stack_a);
 	stack_clear(&stack_b);
 	return (0);
 }
-
-// static void	test_output(t_stack *stack) // ########################## REMOVE
-// {
-// 	while (stack)
-// 	{
-// 		ft_printf("%i: %i\n", stack->rank, stack->value);
-// 		stack = stack->next;
-// 	}
-// }

@@ -3,10 +3,11 @@ NAME =			push_swap
 SRC_DIR =		src/
 SRC =			main.c \
 				populate_stack.c \
-				validate_input.c \
+				set_rank.c \
 				sort_push_swap.c \
 				sort_rotate.c \
-				sort.c
+				sort.c \
+				validate_input.c
 
 OBJ_DIR =		obj/
 OBJ =			$(addprefix $(OBJ_DIR), $(SRC:.c=.o))

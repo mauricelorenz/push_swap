@@ -6,7 +6,7 @@
 /*   By: mlorenz <mlorenz@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 13:46:27 by mlorenz           #+#    #+#             */
-/*   Updated: 2025/12/28 17:34:32 by mlorenz          ###   ########.fr       */
+/*   Updated: 2025/12/30 20:00:48 by mlorenz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@
 # include <stdlib.h>
 # include "libft/libft.h"
 
-int		main(int argc, char **argv);
-int		already_sorted(int argc, char **argv);
 int		arguments_valid(int argc, char **argv);
+int		already_sorted(int argc, char **argv);
 typedef struct s_stack
 {
 	int				value;
@@ -36,7 +35,5 @@ void	rr(t_stack **stack_a, t_stack **stack_b);
 void	rrab(t_stack **stack, char ab);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
 int		set_rank(t_stack *stack);
-int		stack_len(t_stack *stack);
-int		get_min(t_stack *stack_ptr);
 void	sort_stacks(t_stack **stack_a, t_stack **stack_b);
 #endif

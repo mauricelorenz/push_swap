@@ -6,90 +6,47 @@
 /*   By: mlorenz <mlorenz@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 21:36:54 by mlorenz           #+#    #+#             */
-/*   Updated: 2025/12/29 14:10:14 by mlorenz          ###   ########.fr       */
+/*   Updated: 2025/12/30 19:55:21 by mlorenz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	set_rank(t_stack *stack)
-{
-	int		i;
-	int		len;
-	int		min;
-	t_stack	*stack_ptr;
-
-	i = 0;
-	len = stack_len(stack);
-	while (i < len)
-	{
-		stack_ptr = stack;
-		min = get_min(stack);
-		while (stack_ptr)
-		{
-			if (stack_ptr->value == min)
-				stack_ptr->rank = i;
-			stack_ptr = stack_ptr->next;
-		}
-		i++;
-	}
-	return (i - 1);
-}
-
-int	stack_len(t_stack *stack)
-{
-	int	i;
-
-	i = 0;
-	while (stack)
-	{
-		i++;
-		stack = stack->next;
-	}
-	return (i);
-}
-
-int	get_min(t_stack *stack)
-{
-	int	min;
-
-	min = INT_MAX;
-	while (stack)
-	{
-		if ((stack->rank == -1) && (stack->value < min))
-			min = stack->value;
-		stack = stack->next;
-	}
-	return (min);
-}
-
-int	get_rank_pos(t_stack *stack, int rank)
-{
-	int	i;
-
-	i = 0;
-	while (stack)
-	{
-		if ((stack->rank) == rank)
-			return (i);
-		stack = stack->next;
-		i++;
-	}
-	return (-1);
-}
+static void	sort_btoa(t_stack **stack_a, t_stack **stack_b, int max_rank);
+static int	get_rank_pos(t_stack *stack, int rank);
 
 void	sort_stacks(t_stack **stack_a, t_stack **stack_b)
 {
 	int	max_rank;
-	int	rank_pos;
+	int	i;
+	int	range;
 
 	max_rank = set_rank(*stack_a);
+	range = (max_rank + 1) / 22 + 8;
+	i = 0;
 	while (*stack_a)
 	{
-		pab(stack_b, stack_a, 'b');
-		if (((*stack_b)->rank) <= max_rank / 2)
+		if (((*stack_a)->rank) <= i)
+		{
+			pab(stack_b, stack_a, 'b');
 			rab(stack_b, 'b');
+			i++;
+		}
+		else if (((*stack_a)->rank) <= i + range)
+		{
+			pab(stack_b, stack_a, 'b');
+			i++;
+		}
+		else
+			rab(stack_a, 'a');
 	}
+	sort_btoa(stack_a, stack_b, max_rank);
+}
+
+static void	sort_btoa(t_stack **stack_a, t_stack **stack_b, int max_rank)
+{
+	int	rank_pos;
+
 	while (*stack_b)
 	{
 		rank_pos = get_rank_pos(*stack_b, max_rank);
@@ -102,4 +59,19 @@ void	sort_stacks(t_stack **stack_a, t_stack **stack_b)
 		pab(stack_a, stack_b, 'a');
 		max_rank--;
 	}
+}
+
+static int	get_rank_pos(t_stack *stack, int rank)
+{
+	int	i;
+
+	i = 0;
+	while (stack)
+	{
+		if ((stack->rank) == rank)
+			return (i);
+		stack = stack->next;
+		i++;
+	}
+	return (-1);
 }

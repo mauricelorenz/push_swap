@@ -3,7 +3,6 @@ NAME =			libft.a
 SRC_DIR =		src/
 SRC =			ft_atoi.c \
 				ft_atol.c \
-				ft_printf.c \
 				ft_isdigit.c \
 				ft_putendl_fd.c
 
