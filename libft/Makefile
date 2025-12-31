@@ -4,7 +4,9 @@ SRC_DIR =		src/
 SRC =			ft_atoi.c \
 				ft_atol.c \
 				ft_isdigit.c \
-				ft_putendl_fd.c
+				ft_putendl_fd.c \
+				ft_split.c \
+				ft_strncmp.c
 
 OBJ_DIR =		obj/
 OBJ =			$(addprefix $(OBJ_DIR), $(SRC:.c=.o))

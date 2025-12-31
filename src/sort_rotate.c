@@ -6,7 +6,7 @@
 /*   By: mlorenz <mlorenz@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 22:24:05 by mlorenz           #+#    #+#             */
-/*   Updated: 2025/12/16 23:13:05 by mlorenz          ###   ########.fr       */
+/*   Updated: 2025/12/31 12:58:38 by mlorenz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,12 @@ void	rab(t_stack **stack, char ab)
 	return ;
 }
 
-void	rr(t_stack **stack_a, t_stack **stack_b)
+void	rr(t_stack **stack_a, t_stack **stack_b, char r)
 {
-	rab(stack_a, 's');
-	rab(stack_b, 's');
-	ft_putendl_fd("rr", 1);
+	rab(stack_a, 'r');
+	rab(stack_b, 'r');
+	if (r == 'r')
+		ft_putendl_fd("rr", 1);
 	return ;
 }
 
@@ -60,11 +61,12 @@ void	rrab(t_stack **stack, char ab)
 	return ;
 }
 
-void	rrr(t_stack **stack_a, t_stack **stack_b)
+void	rrr(t_stack **stack_a, t_stack **stack_b, char r)
 {
-	rrab(stack_a, 's');
-	rrab(stack_b, 's');
-	ft_putendl_fd("rrr", 1);
+	rrab(stack_a, 'r');
+	rrab(stack_b, 'r');
+	if (r == 'r')
+		ft_putendl_fd("rrr", 1);
 	return ;
 }
 

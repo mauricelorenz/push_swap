@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlorenz <mlorenz@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/02 13:46:27 by mlorenz           #+#    #+#             */
-/*   Updated: 2025/12/31 13:49:17 by mlorenz          ###   ########.fr       */
+/*   Created: 2025/12/31 12:50:41 by mlorenz           #+#    #+#             */
+/*   Updated: 2025/12/31 16:03:34 by mlorenz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PUSH_SWAP_BONUS_H
+# define PUSH_SWAP_BONUS_H
 # include <limits.h>
 # include <stdlib.h>
 # include "libft/libft.h"
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 5000
+# endif
 
 int		arguments_valid(int argc, char **argv);
 int		already_sorted(int argc, char **argv);
@@ -35,5 +38,5 @@ void	rr(t_stack **stack_a, t_stack **stack_b, char r);
 void	rrab(t_stack **stack, char ab);
 void	rrr(t_stack **stack_a, t_stack **stack_b, char r);
 int		set_rank(t_stack *stack);
-void	sort_stacks(t_stack **stack_a, t_stack **stack_b);
+int		check_sorting(t_stack **stack_a, t_stack **stack_b);
 #endif

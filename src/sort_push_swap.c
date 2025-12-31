@@ -6,7 +6,7 @@
 /*   By: mlorenz <mlorenz@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 17:33:49 by mlorenz           #+#    #+#             */
-/*   Updated: 2025/12/16 22:06:00 by mlorenz          ###   ########.fr       */
+/*   Updated: 2025/12/31 12:56:51 by mlorenz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,12 @@ void	sab(t_stack **stack, char ab)
 	return ;
 }
 
-void	ss(t_stack **stack_a, t_stack **stack_b)
+void	ss(t_stack **stack_a, t_stack **stack_b, char s)
 {
 	sab(stack_a, 's');
 	sab(stack_b, 's');
-	ft_putendl_fd("ss", 1);
+	if (s == 's')
+		ft_putendl_fd("ss", 1);
 	return ;
 }
 
