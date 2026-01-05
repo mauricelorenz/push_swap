@@ -6,7 +6,7 @@
 /*   By: mlorenz <mlorenz@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 13:46:29 by mlorenz           #+#    #+#             */
-/*   Updated: 2026/01/04 22:17:58 by mlorenz          ###   ########.fr       */
+/*   Updated: 2026/01/05 16:22:03 by mlorenz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	arguments_valid(int argc, char **argv)
 	while (argc-- > 1)
 	{
 		arg_ptr = *argv_ptr;
-		if (!ft_isdigit(*arg_ptr) || ((*arg_ptr == '-') && !*(arg_ptr + 1)))
+		if (!ft_isdigit(*arg_ptr) && !((*arg_ptr == '-') && *(arg_ptr + 1)))
 			return (0);
 		arg_ptr++;
 		while (*arg_ptr)
