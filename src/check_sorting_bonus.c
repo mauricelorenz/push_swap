@@ -6,7 +6,7 @@
 /*   By: mlorenz <mlorenz@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 13:03:56 by mlorenz           #+#    #+#             */
-/*   Updated: 2026/01/04 21:52:26 by mlorenz          ###   ########.fr       */
+/*   Updated: 2026/01/05 15:28:03 by mlorenz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,24 @@ int		execute_instruction(t_stack **stack_a, t_stack **stack_b, char *instruction
 
 int	check_sorting(t_stack **stack_a, t_stack **stack_b)
 {
-	char	*instruction_list[100000];
-	char	**instruction_list_ptr;
+	// char	*instruction_list[100000];
+	// char	**instruction_list_ptr;
 
-	get_instruction_list(instruction_list);
-	instruction_list_ptr = instruction_list;
-	while(*instruction_list_ptr)
+	// get_instruction_list(instruction_list);
+	// instruction_list_ptr = instruction_list;
+	char	*instruction;
+
+	instruction = NULL;
+	while(1)
 	{
-		printf("%s", *instruction_list_ptr);
-		if (!execute_instruction(stack_a, stack_b, *instruction_list_ptr))
+		// printf("%s", *instruction_list_ptr);
+		instruction = get_next_line(0);
+		if (!instruction)
+			break;
+		if (!execute_instruction(stack_a, stack_b, instruction))
 			return(ft_putendl_fd("Error", 2), 2);
-		instruction_list_ptr++;
+		free(instruction); instruction = NULL; 
+		// instruction_list_ptr++;
 	}
 	// free_null_list(instruction_list);
 	if (is_sorted(stack_a, stack_b))
@@ -128,30 +135,30 @@ int	execute_instruction(t_stack **stack_a, t_stack **stack_b, char *instruction)
 // 	return (instruction_list);
 // }
 
-void	get_instruction_list(char **instruction_list)
-{
-	int		i;
-	char	**instruction_list_ptr;
+// void	get_instruction_list(char **instruction_list)
+// {
+// 	int		i;
+// 	char	**instruction_list_ptr;
 
-	i = 0;
-	instruction_list_ptr = instruction_list;
-	while (i < 10000)
-	{
-		*instruction_list_ptr = get_next_line(0);
-		// while (**instruction_list_ptr)
-		// {
-		// 	if (**instruction_list_ptr == '\0')
-		// 		write(1, "\\0", 2);
-		// 	else if (**instruction_list_ptr == '\n')
-		// 		write(1, "\\n\n", 3);
-		// 	else
-		// 		write(1, *instruction_list_ptr, 1);
-		// 	(*instruction_list_ptr)++;
-		// }
-		if (!*instruction_list_ptr)
-			return ;
-		i++;
-		instruction_list_ptr++;
-	}
-	return ;
-}
+// 	i = 0;
+// 	instruction_list_ptr = instruction_list;
+// 	while (i < 10000)
+// 	{
+// 		*instruction_list_ptr = get_next_line(0);
+// 		// while (**instruction_list_ptr)
+// 		// {
+// 		// 	if (**instruction_list_ptr == '\0')
+// 		// 		write(1, "\\0", 2);
+// 		// 	else if (**instruction_list_ptr == '\n')
+// 		// 		write(1, "\\n\n", 3);
+// 		// 	else
+// 		// 		write(1, *instruction_list_ptr, 1);
+// 		// 	(*instruction_list_ptr)++;
+// 		// }
+// 		if (!*instruction_list_ptr)
+// 			return ;
+// 		i++;
+// 		instruction_list_ptr++;
+// 	}
+// 	return ;
+// }
