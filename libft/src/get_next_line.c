@@ -6,7 +6,7 @@
 /*   By: mlorenz <mlorenz@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 13:00:21 by mlorenz           #+#    #+#             */
-/*   Updated: 2026/01/04 17:27:58 by mlorenz          ###   ########.fr       */
+/*   Updated: 2026/01/06 19:13:37 by mlorenz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 static int	handle_read(char *buf_ptr, char **line, int fd);
 static int	handle_rest(char *buf_ptr, char **line);
-static int	malloc_and_append(char **dst, char *src, size_t dst_len, size_t src_len);
-static int	malloc_and_copy(char **dst, char *src, size_t dst_len, size_t src_len);
+static int	malloc_and_append(char **dst,
+				char *src, size_t dst_len, size_t src_len);
+static int	malloc_and_copy(char **dst,
+				char *src, size_t dst_len, size_t src_len);
 
 char	*get_next_line(int fd)
 {
@@ -91,7 +93,8 @@ static int	handle_rest(char *buf_ptr, char **line)
 	return (1);
 }
 
-static int	malloc_and_append(char **dst, char *src, size_t dst_len, size_t src_len)
+static int	malloc_and_append(char **dst,
+	char *src, size_t dst_len, size_t src_len)
 {
 	char	*new_dst;
 
@@ -106,7 +109,8 @@ static int	malloc_and_append(char **dst, char *src, size_t dst_len, size_t src_l
 	return (1);
 }
 
-static int	malloc_and_copy(char **dst, char *src, size_t dst_len, size_t src_len)
+static int	malloc_and_copy(char **dst,
+	char *src, size_t dst_len, size_t src_len)
 {
 	char	*new_dst;
 
