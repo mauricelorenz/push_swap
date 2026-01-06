@@ -6,7 +6,7 @@
 /*   By: mlorenz <mlorenz@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 14:16:47 by mlorenz           #+#    #+#             */
-/*   Updated: 2025/12/30 19:58:50 by mlorenz          ###   ########.fr       */
+/*   Updated: 2026/01/06 19:58:08 by mlorenz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 	if (!stack_a)
 		return (3);
 	stack_b = NULL;
-	sort_stacks(&stack_a, &stack_b);
+	sort(&stack_a, &stack_b);
 	stack_clear(&stack_a);
 	stack_clear(&stack_b);
 	return (0);
