@@ -6,12 +6,13 @@
 /*   By: mlorenz <mlorenz@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 13:46:29 by mlorenz           #+#    #+#             */
-/*   Updated: 2026/01/05 16:22:03 by mlorenz          ###   ########.fr       */
+/*   Updated: 2026/01/06 19:11:15 by mlorenz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+static int	is_numeric(char *arg_ptr);
 static int	is_unique(char *arg_ptr, char **argv);
 
 int	already_sorted(int argc, char **argv)
@@ -28,7 +29,6 @@ int	already_sorted(int argc, char **argv)
 
 int	arguments_valid(int argc, char **argv)
 {
-	char	*arg_ptr;
 	char	**argv_ptr;
 	long	arg_long;
 
@@ -38,22 +38,28 @@ int	arguments_valid(int argc, char **argv)
 	argv_ptr = argv;
 	while (argc-- > 1)
 	{
-		arg_ptr = *argv_ptr;
-		if (!ft_isdigit(*arg_ptr) && !((*arg_ptr == '-') && *(arg_ptr + 1)))
+		if (!is_numeric(*argv_ptr))
 			return (0);
-		arg_ptr++;
-		while (*arg_ptr)
-		{
-			if (!ft_isdigit(*arg_ptr))
-				return (0);
-			arg_ptr++;
-		}
 		arg_long = ft_atol(*argv_ptr);
 		if (arg_long < INT_MIN || arg_long > INT_MAX)
 			return (0);
 		if (!is_unique(*argv_ptr, argv))
 			return (0);
 		argv_ptr++;
+	}
+	return (1);
+}
+
+static int	is_numeric(char *arg_ptr)
+{
+	if (!ft_isdigit(*arg_ptr) && !((*arg_ptr == '-') && *(arg_ptr + 1)))
+		return (0);
+	arg_ptr++;
+	while (*arg_ptr)
+	{
+		if (!ft_isdigit(*arg_ptr))
+			return (0);
+		arg_ptr++;
 	}
 	return (1);
 }
