@@ -6,7 +6,7 @@
 /*   By: mlorenz <mlorenz@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 13:03:56 by mlorenz           #+#    #+#             */
-/*   Updated: 2026/01/05 15:28:03 by mlorenz          ###   ########.fr       */
+/*   Updated: 2026/01/07 15:55:02 by mlorenz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,22 +59,6 @@ void	free_null_list(char **list)
 	}
 	free(list);
 	list = NULL;
-}
-
-int	is_sorted(t_stack **stack_a, t_stack **stack_b)
-{
-	t_stack *stack_a_ptr;
-
-	stack_a_ptr = *stack_a;
-	while ((stack_a_ptr)->next)
-	{
-		if ((stack_a_ptr)->value > (stack_a_ptr)->next->value)
-			return (0);
-		stack_a_ptr = (stack_a_ptr)->next;
-	}
-	if (*stack_b)
-		return (0);
-	return (1);
 }
 
 int	execute_instruction(t_stack **stack_a, t_stack **stack_b, char *instruction)
