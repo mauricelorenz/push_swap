@@ -6,12 +6,13 @@
 /*   By: mlorenz <mlorenz@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 21:36:54 by mlorenz           #+#    #+#             */
-/*   Updated: 2026/01/06 22:50:55 by mlorenz          ###   ########.fr       */
+/*   Updated: 2026/01/07 12:51:05 by mlorenz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+static void	sort_small_n(t_stack **stack_a, t_stack **stack_b, int max_rank);
 static void	sort_stacks(t_stack **stack_a, t_stack **stack_b, int max_rank);
 static void	sort_btoa(t_stack **stack_a, t_stack **stack_b, int max_rank);
 static int	get_rank_pos(t_stack *stack, int rank);
@@ -28,8 +29,43 @@ void	sort(t_stack **stack_a, t_stack **stack_b)
 	}
 	if (max_rank == 2)
 	{
+		if ((*stack_a)->value == 2)
+			rab(stack_a, 'a');
+		else if ((*stack_a)->value == 0)
+			rrab(stack_a, 'a');
+		if ((*stack_a)->value == 1)
+			sab(stack_a, 'a');
+		return ;
+	}
+	if (max_rank == 4)
+	{
+		sort_small_n(stack_a, stack_b, max_rank);
+		return ;
 	}
 	sort_stacks(stack_a, stack_b, max_rank);
+}
+
+static void	sort_small_n(t_stack **stack_a, t_stack **stack_b, int max_rank)
+{
+	t_stack	**stack_a_ptr;
+
+	(void)stack_b;
+	(void)max_rank;
+	while (1)
+	{
+		stack_a_ptr = stack_a;
+		while (1)
+		{
+			if (!(*stack_a_ptr)->next)
+				return ;
+			if ((*stack_a_ptr)->value > (*stack_a_ptr)->next->value)
+				break;
+			*stack_a_ptr = (*stack_a_ptr)->next;
+		}
+		if ((*stack_a_ptr)->value > (*stack_a_ptr)->next->value)
+			sab(stack_a, 'a');
+		rab(stack_a, 'a');
+	}
 }
 
 static void	sort_stacks(t_stack **stack_a, t_stack **stack_b, int max_rank)
