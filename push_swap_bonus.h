@@ -6,7 +6,7 @@
 /*   By: mlorenz <mlorenz@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 12:50:41 by mlorenz           #+#    #+#             */
-/*   Updated: 2025/12/31 16:03:34 by mlorenz          ###   ########.fr       */
+/*   Updated: 2026/01/08 10:34:46 by mlorenz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,8 @@
 # include <limits.h>
 # include <stdlib.h>
 # include "libft/libft.h"
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 5000
-# endif
 
 int		arguments_valid(int argc, char **argv);
-int		already_sorted(int argc, char **argv);
 typedef struct s_stack
 {
 	int				value;
@@ -39,4 +35,5 @@ void	rrab(t_stack **stack, char ab);
 void	rrr(t_stack **stack_a, t_stack **stack_b, char r);
 int		set_rank(t_stack *stack);
 int		check_sorting(t_stack **stack_a, t_stack **stack_b);
+int		is_sorted(t_stack **stack_a);
 #endif

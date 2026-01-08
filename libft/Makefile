@@ -4,6 +4,10 @@ SRC_DIR =		src/
 SRC =			ft_atoi.c \
 				ft_atol.c \
 				ft_isdigit.c \
+				ft_lstadd_back.c \
+				ft_lstclear.c \
+				ft_lstlast.c \
+				ft_lstnew.c \
 				ft_putendl_fd.c \
 				ft_split.c \
 				ft_strncmp.c \
