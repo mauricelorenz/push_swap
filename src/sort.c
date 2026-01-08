@@ -6,18 +6,16 @@
 /*   By: mlorenz <mlorenz@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 21:36:54 by mlorenz           #+#    #+#             */
-/*   Updated: 2026/01/07 16:39:57 by mlorenz          ###   ########.fr       */
+/*   Updated: 2026/01/08 09:56:20 by mlorenz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int			is_sorted(t_stack **stack_a);
-static void	sort_tiny_n(t_stack **stack_a, int offset);
-static void	sort_small_n(t_stack **stack_a, t_stack **stack_b, int max_rank);
-static void	sort_stacks(t_stack **stack_a, t_stack **stack_b, int max_rank);
+static void	sort_tiny(t_stack **stack_a, int offset);
+static void	sort_small(t_stack **stack_a, t_stack **stack_b, int max_rank);
+static void	sort_big(t_stack **stack_a, t_stack **stack_b, int max_rank);
 static void	sort_btoa(t_stack **stack_a, t_stack **stack_b, int max_rank);
-static int	get_rank_pos(t_stack *stack, int rank);
 
 void	sort(t_stack **stack_a, t_stack **stack_b)
 {
@@ -31,32 +29,18 @@ void	sort(t_stack **stack_a, t_stack **stack_b)
 	}
 	if (max_rank == 2)
 	{
-		sort_tiny_n(stack_a, 0);
+		sort_tiny(stack_a, 0);
 		return ;
 	}
 	if (max_rank <= 4)
 	{
-		sort_small_n(stack_a, stack_b, max_rank);
+		sort_small(stack_a, stack_b, max_rank);
 		return ;
 	}
-	sort_stacks(stack_a, stack_b, max_rank);
+	sort_big(stack_a, stack_b, max_rank);
 }
 
-int	is_sorted(t_stack **stack_a)
-{
-	t_stack	*stack_a_ptr;
-
-	stack_a_ptr = *stack_a;
-	while ((stack_a_ptr)->next)
-	{
-		if ((stack_a_ptr)->value > (stack_a_ptr)->next->value)
-			return (0);
-		stack_a_ptr = (stack_a_ptr)->next;
-	}
-	return (1);
-}
-
-static void	sort_tiny_n(t_stack **stack_a, int offset)
+static void	sort_tiny(t_stack **stack_a, int offset)
 {
 	if ((*stack_a)->rank == 2 + offset)
 		rab(stack_a, 'a');
@@ -68,7 +52,7 @@ static void	sort_tiny_n(t_stack **stack_a, int offset)
 	return ;
 }
 
-static void	sort_small_n(t_stack **stack_a, t_stack **stack_b, int max_rank)
+static void	sort_small(t_stack **stack_a, t_stack **stack_b, int max_rank)
 {
 	int	i;
 	int	offset;
@@ -91,12 +75,12 @@ static void	sort_small_n(t_stack **stack_a, t_stack **stack_b, int max_rank)
 		i++;
 	}
 	if (!is_sorted(stack_a))
-		sort_tiny_n(stack_a, offset);
+		sort_tiny(stack_a, offset);
 	while (*stack_b)
 		pab(stack_a, stack_b, 'a');
 }
 
-static void	sort_stacks(t_stack **stack_a, t_stack **stack_b, int max_rank)
+static void	sort_big(t_stack **stack_a, t_stack **stack_b, int max_rank)
 {
 	int	i;
 	int	range;
@@ -138,19 +122,4 @@ static void	sort_btoa(t_stack **stack_a, t_stack **stack_b, int max_rank)
 		pab(stack_a, stack_b, 'a');
 		max_rank--;
 	}
-}
-
-static int	get_rank_pos(t_stack *stack, int rank)
-{
-	int	i;
-
-	i = 0;
-	while (stack)
-	{
-		if ((stack->rank) == rank)
-			return (i);
-		stack = stack->next;
-		i++;
-	}
-	return (-1);
 }

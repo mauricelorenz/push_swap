@@ -7,6 +7,7 @@ SRC =			main.c \
 				set_rank.c \
 				sort_push_swap.c \
 				sort_rotate.c \
+				sort_utils.c \
 				sort.c \
 				validate_input.c
 
@@ -16,6 +17,7 @@ SRC_BONUS =		main_bonus.c \
 				set_rank.c \
 				sort_push_swap.c \
 				sort_rotate.c \
+				sort_utils.c \
 				validate_input.c
 
 OBJ_DIR =		obj/
