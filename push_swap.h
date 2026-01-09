@@ -6,14 +6,13 @@
 /*   By: mlorenz <mlorenz@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 13:46:27 by mlorenz           #+#    #+#             */
-/*   Updated: 2026/01/08 09:55:58 by mlorenz          ###   ########.fr       */
+/*   Updated: 2026/01/09 22:10:41 by mlorenz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include <limits.h>
-# include <stdlib.h>
 # include "libft/libft.h"
 
 int		arguments_valid(int argc, char **argv);
