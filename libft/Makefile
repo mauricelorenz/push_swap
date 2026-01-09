@@ -8,11 +8,9 @@ SRC =			ft_atoi.c \
 				ft_lstclear.c \
 				ft_lstlast.c \
 				ft_lstnew.c \
-				ft_putendl_fd.c \
-				ft_split.c \
 				ft_strncmp.c \
-				get_next_line.c \
-				get_next_line_utils.c
+				get_next_line_utils.c \
+				get_next_line.c
 
 OBJ_DIR =		obj/
 OBJ =			$(addprefix $(OBJ_DIR), $(SRC:.c=.o))

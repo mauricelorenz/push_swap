@@ -6,7 +6,7 @@
 /*   By: mlorenz <mlorenz@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 22:24:05 by mlorenz           #+#    #+#             */
-/*   Updated: 2025/12/31 12:58:38 by mlorenz          ###   ########.fr       */
+/*   Updated: 2026/01/09 20:09:38 by mlorenz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ void	rab(t_stack **stack, char ab)
 		tail->next->next = NULL;
 	}
 	if (ab == 'a')
-		ft_putendl_fd("ra", 1);
+		write(1, "ra\n", 3);
 	else if (ab == 'b')
-		ft_putendl_fd("rb", 1);
+		write(1, "rb\n", 3);
 	return ;
 }
 
@@ -37,7 +37,7 @@ void	rr(t_stack **stack_a, t_stack **stack_b, char r)
 	rab(stack_a, 'r');
 	rab(stack_b, 'r');
 	if (r == 'r')
-		ft_putendl_fd("rr", 1);
+		write(1, "rr\n", 3);
 	return ;
 }
 
@@ -55,9 +55,9 @@ void	rrab(t_stack **stack, char ab)
 		new_tail->next = NULL;
 	}
 	if (ab == 'a')
-		ft_putendl_fd("rra", 1);
+		write(1, "rra\n", 4);
 	else if (ab == 'b')
-		ft_putendl_fd("rrb", 1);
+		write(1, "rrb\n", 4);
 	return ;
 }
 
@@ -66,7 +66,7 @@ void	rrr(t_stack **stack_a, t_stack **stack_b, char r)
 	rrab(stack_a, 'r');
 	rrab(stack_b, 'r');
 	if (r == 'r')
-		ft_putendl_fd("rrr", 1);
+		write(1, "rrr\n", 4);
 	return ;
 }
 

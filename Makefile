@@ -14,7 +14,6 @@ SRC =			main.c \
 SRC_BONUS =		main_bonus.c \
 				check_sorting_bonus.c \
 				populate_stack.c \
-				set_rank.c \
 				sort_push_swap.c \
 				sort_rotate.c \
 				sort_utils.c \
@@ -57,4 +56,4 @@ fclean:			clean
 
 re:				fclean all
 
-.PHONY:			all clean fclean re
+.PHONY:			all bonus clean fclean re

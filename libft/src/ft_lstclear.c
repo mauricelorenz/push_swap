@@ -6,7 +6,7 @@
 /*   By: mlorenz <mlorenz@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 19:07:40 by mlorenz           #+#    #+#             */
-/*   Updated: 2026/01/08 10:12:19 by mlorenz          ###   ########.fr       */
+/*   Updated: 2026/01/09 15:48:10 by mlorenz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 		free(*lst);
 		*lst = curr_next;
 	}
-	*lst = 0;
+	*lst = NULL;
 }

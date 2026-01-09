@@ -6,7 +6,7 @@
 /*   By: mlorenz <mlorenz@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 12:50:41 by mlorenz           #+#    #+#             */
-/*   Updated: 2026/01/08 10:34:46 by mlorenz          ###   ########.fr       */
+/*   Updated: 2026/01/09 15:43:40 by mlorenz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	rab(t_stack **stack, char ab);
 void	rr(t_stack **stack_a, t_stack **stack_b, char r);
 void	rrab(t_stack **stack, char ab);
 void	rrr(t_stack **stack_a, t_stack **stack_b, char r);
-int		set_rank(t_stack *stack);
 int		check_sorting(t_stack **stack_a, t_stack **stack_b);
 int		is_sorted(t_stack **stack_a);
 #endif

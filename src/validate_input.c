@@ -6,7 +6,7 @@
 /*   By: mlorenz <mlorenz@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 13:46:29 by mlorenz           #+#    #+#             */
-/*   Updated: 2026/01/06 19:11:15 by mlorenz          ###   ########.fr       */
+/*   Updated: 2026/01/09 14:43:34 by mlorenz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,6 @@
 
 static int	is_numeric(char *arg_ptr);
 static int	is_unique(char *arg_ptr, char **argv);
-
-int	already_sorted(int argc, char **argv)
-{
-	argv++;
-	while (argc-- > 2)
-	{
-		if (ft_atoi(*argv) > ft_atoi(*(argv + 1)))
-			return (0);
-		argv++;
-	}
-	return (1);
-}
 
 int	arguments_valid(int argc, char **argv)
 {
@@ -76,6 +64,18 @@ static int	is_unique(char *arg_ptr, char **argv)
 		if (arg_int == ft_atoi(*argv_curr))
 			return (0);
 		argv_curr++;
+	}
+	return (1);
+}
+
+int	already_sorted(int argc, char **argv)
+{
+	argv++;
+	while (argc-- > 2)
+	{
+		if (ft_atoi(*argv) > ft_atoi(*(argv + 1)))
+			return (0);
+		argv++;
 	}
 	return (1);
 }
