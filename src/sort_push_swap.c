@@ -6,7 +6,7 @@
 /*   By: mlorenz <mlorenz@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 17:33:49 by mlorenz           #+#    #+#             */
-/*   Updated: 2025/12/16 22:06:00 by mlorenz          ###   ########.fr       */
+/*   Updated: 2026/01/09 20:08:43 by mlorenz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,18 @@ void	sab(t_stack **stack, char ab)
 		(*stack)->next->next = tail;
 	}
 	if (ab == 'a')
-		ft_putendl_fd("sa", 1);
+		write(1, "sa\n", 3);
 	else if (ab == 'b')
-		ft_putendl_fd("sb", 1);
+		write(1, "sb\n", 3);
 	return ;
 }
 
-void	ss(t_stack **stack_a, t_stack **stack_b)
+void	ss(t_stack **stack_a, t_stack **stack_b, char s)
 {
 	sab(stack_a, 's');
 	sab(stack_b, 's');
-	ft_putendl_fd("ss", 1);
+	if (s == 's')
+		write(1, "ss\n", 3);
 	return ;
 }
 
@@ -52,8 +53,8 @@ void	pab(t_stack **stack_dst, t_stack **stack_src, char ab)
 		*stack_dst = src_head;
 	}
 	if (ab == 'a')
-		ft_putendl_fd("pa", 1);
+		write(1, "pa\n", 3);
 	else if (ab == 'b')
-		ft_putendl_fd("pb", 1);
+		write(1, "pb\n", 3);
 	return ;
 }

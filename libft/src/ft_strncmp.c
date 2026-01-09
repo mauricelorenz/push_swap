@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlorenz <mlorenz@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/02 14:16:47 by mlorenz           #+#    #+#             */
-/*   Updated: 2026/01/09 20:07:44 by mlorenz          ###   ########.fr       */
+/*   Created: 2025/10/14 22:02:16 by mlorenz           #+#    #+#             */
+/*   Updated: 2025/12/31 15:18:28 by mlorenz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../libft.h"
 
-int	main(int argc, char **argv)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
+	size_t	i;
 
-	if (argc < 2)
-		return (1);
-	if (!arguments_valid(argc, argv))
-		return (write(2, "Error\n", 6), 2);
-	if (already_sorted(argc, argv))
-		return (0);
-	stack_a = populate_stack(argc, argv);
-	if (!stack_a)
-		return (3);
-	stack_b = NULL;
-	sort(&stack_a, &stack_b);
-	stack_clear(&stack_a);
-	stack_clear(&stack_b);
+	i = 0;
+	while ((*s1 || *s2) && (i++ < n))
+	{
+		if (*s1 != *s2)
+			return ((unsigned char)*s1 - (unsigned char)*s2);
+		s1++;
+		s2++;
+	}
 	return (0);
 }
