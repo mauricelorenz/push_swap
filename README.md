@@ -7,10 +7,12 @@ The to-be-sorted values are passed to the program as command line arguments. Nex
 After validation the values get parsed, in case of this implementation into a singly linked list forming stack a.
 The additional stack b, used for performing some of the following operations is empty at start and has to be empty at the end of the program execution.
 
-The implemented sorting algorithm works in two steps:
+The implemented sorting algorithms work the following way if the list is not already sorted:
 
-1. It iterates over stack a and decides by a stack size related range if the value gets pushed to the top of b (pb) or to the bottom of b (pb + rb). Values outside of the range are temporarily skipped by rotating stack a (ra).
-2. It pushes the values back (pa) after rotating or reverse rotating stack b (rb/rrb) to get the desired value to the top depending on its position in the stack.
+1. If there are only two values they get swapped in place (sa).
+2. sort_tiny(): If there are three values a simple algorithm is used on stack a.
+3. sort_small(): Pushes up to two of the smallest values to stack b (pb), calls sort_tiny() on stack a and pushes back from stack b (pa).
+4. sort_big(): Iterates over stack a and decides by a stack size related range if the value gets pushed to the top of b (pb) or to the bottom of b (pb + rb). Values outside of the range are temporarily skipped by rotating stack a (ra). It pushes the values back (pa) after rotating or reverse rotating stack b (rb/rrb) to get the desired value to the top depending on its position in the stack.
 
 ## Requirements
 
@@ -28,6 +30,15 @@ For maximum project validation:
 | ra/rb/rr | rotate the named stack/s upward by one with the first element becoming the last one |
 | rra/rrb/rrr | rotate the named stack/s downward by one with the last element becoming the first one |
 
+## Bonus
+
+The bonus part of this project is a program called checker.
+It verifies that:
+
+- The passed numbers are valid
+- The output contains only valid operations separated by newlines
+- After execution, stack a is sorted and stack b is empty
+
 # Instructions
 
 ## Compilation
@@ -35,6 +46,10 @@ For maximum project validation:
 Use
 `make` or `make push_swap`
 to build the program.
+
+Use
+`make bonus`
+to build the checker.
 
 To delete the object files use
 `make clean` or `make fclean`
@@ -50,18 +65,11 @@ Execute the program by calling
 
 ### Example
 ```bash
-$ ./push_swap 2 3 1 5 4
+$ ./push_swap 2 5 3 4 1
+rra
 pb
 pb
-pb
-rb
-pb
-pb
-rb
-pa
-rrb
-pa
-pa
+ra
 pa
 pa
 ```
@@ -71,15 +79,30 @@ On Linux/macOS to easily check the amount of executed operations use
 
 ### Example
 ```bash
-$ ./push_swap 2 3 1 5 4 | wc -l
-13
+$ ./push_swap 2 5 3 4 1 | wc -l 
+6
+```
+
+To verify the result use
+`./push_swap [ARGS] | ./checker [ARGS]`
+
+### Example
+```bash
+$ ./push_swap 2 5 3 4 1 | ./checker 2 5 3 4 1
+OK
 ```
 
 ## Program behavior
 
-Return nothing if no arguments are passed or the arguments are already sorted.
-Return `Error` if invalid arguments are passed. E. g. `./push_swap 1 two 3.5 -2147483649`.
-Else return the executed operations.
+- Return nothing if no arguments are passed or the arguments are already sorted.
+- Return `Error` if invalid arguments are passed. E. g. `./push_swap 1 two 3.5 -2147483649`.
+- Else return the executed operations.
+
+### Bonus
+
+- Return `Error` for either faulty numbers or operations.
+- Return `OK` if stack a is sorted and stack b is empty.
+- Else return `KO`.
 
 # Resources
 
